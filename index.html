@@ -12,42 +12,99 @@
         <div id="app">
 
             <!-- HERO SECTION -->
-            <header class="Header">
-                <!-- Background image layer -->
-                <div class="Background">
-                    <img src="Images/riverSlow.gif" id="Background" alt="Background image">
+           <header class="Header" id="hero">
+            <!-- Background image layer -->
+            <div class="Background">
+                <img src="Images/riverSlow.gif" id="Background" alt="Background image">
+            </div>
+
+            <!-- Navigation overlay -->
+            <nav class="Navigation">
+                <img src="Images/logoUpdated.png" class="ImageLogo" alt="Riverview Pressure Washing Services logo">
+
+                <span class="Navbar-toggle" id="js-navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </span>
+
+                <ul class="Nav-links" id="js-menu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hero copy -->
+            <div class="HeroContent">
+                <h1>We Clean It For You</h1>
+                <p>Residential · Commercial · Farm</p>
+
+                <div class="HeroButtons">
+                    <a href="tel:+18152730448" class="HeroButton PrimaryButton">(815) 273-0448</a>
+                    <a href="#contact" class="HeroButton SecondaryButton">Free Quote</a>
                 </div>
+            </div>
 
-                <!-- Navigation overlay -->
-                <nav class="Navigation">
-                    <img src="Images/logoUpdated.png" class="ImageLogo" alt="Riverview Pressure Washing Services logo">
-
-                    <span class="Navbar-toggle" id="js-navbar-toggle">
-                        <i class="fas fa-bars"></i>
-                    </span>
-
-                    <ul class="Nav-links" id="js-menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Hero copy -->
-                <div class="HeroContent">
-                    <h1>We Clean It For You</h1>
-                    <p>Residential · Commercial · Farm</p>
-
-                    <div class="HeroButtons">
-                        <a href="tel:+18152730448" class="HeroButton PrimaryButton">(815) 273-0448</a>
-                        <a href="#contact" class="HeroButton SecondaryButton">Free Quote</a>
-                    </div>
-                </div>
-            </header>
-            <a href="#main-content" class="ScrollIndicator" aria-label="Scroll down to main content">
+            <!-- Scroll button inside hero -->
+            <a href="#about" class="ScrollIndicatorWrapper" aria-label="Scroll to About section">
                 <span class="ScrollIndicatorText">Scroll</span>
                 <span class="ScrollIndicatorArrow"></span>
             </a>
+        </header>
+
+            <!-- ABOUT SECTION -->
+            <section class="AboutSection" id="about">
+                <div class="AboutInner">
+                    <div class="AboutImage">
+                        <img src="Images/about-pressurewashing.jpg" alt="Pressure washing equipment and exterior cleaning">
+                    </div>
+
+                    <div class="AboutContent">
+                        <h2>Who We Are</h2>
+                        <h3>Your Local Trusted Partner</h3>
+
+                        <p>
+                            Placeholder text goes here. This section will explain who you are, what you do, and why customers can trust you with their property.
+                        </p>
+
+                        <p>
+                            Placeholder text goes here. Keep this short, direct, and credible so it supports the homepage without turning into a wall of copy.
+                        </p>
+
+                        <div class="AboutTrustGrid">
+                            <div class="AboutTrustItem">
+                                <div class="AboutIcon">★</div>
+                                <h4>Professional Work</h4>
+                                <p>Placeholder text.</p>
+                            </div>
+
+                            <div class="AboutTrustItem">
+                                <div class="AboutIcon">★</div>
+                                <h4>Fully Insured</h4>
+                                <p>Placeholder text.</p>
+                            </div>
+
+                            <div class="AboutTrustItem">
+                                <div class="AboutIcon">★</div>
+                                <h4>Reliable Scheduling</h4>
+                                <p>Placeholder text.</p>
+                            </div>
+
+                            <div class="AboutTrustItem">
+                                <div class="AboutIcon">★</div>
+                                <h4>Satisfaction Focused</h4>
+                                <p>Placeholder text.</p>
+                            </div>
+                        </div>
+
+                        <div class="AboutButtons">
+                            <a href="#services" class="AboutButton AboutPrimary">View Services</a>
+                            <a href="#contact" class="AboutButton AboutSecondary">Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- PAGE CONTENT GOES HERE -->
 
         </div>
