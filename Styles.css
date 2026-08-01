@@ -1,13 +1,36 @@
-﻿html, body {
+﻿/* =========================================================
+   GLOBAL / RESET
+   ========================================================= */
+
+html, body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* no padding-top here */
 }
 
 *, *::before, *::after {
     box-sizing: inherit;
+}
+
+/* Hide default scrollbar */
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+html::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-thumb {
+    display: none;
 }
 
 /* =========================================================
@@ -18,10 +41,8 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
 }
 
-/* Background image layer */
 .Background {
     position: absolute;
     inset: 0;
@@ -36,15 +57,12 @@
     display: block;
 }
 
-/* =========================================================
-   NAVIGATION OVERLAY
-   ========================================================= */
-
+/* Fixed navigation */
 .Navigation {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 100;
     width: 100%;
     height: 120px;
     display: flex;
@@ -53,7 +71,6 @@
     background-color: rgba(200, 200, 200, 0.5);
 }
 
-/* Add a little extra visual space under the bar */
 .Navigation::after {
     content: "";
     position: absolute;
@@ -105,10 +122,6 @@
     display: none;
 }
 
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
 .HeroContent {
     position: absolute;
     top: 57%;
@@ -121,24 +134,21 @@
     padding: 20px;
 }
 
-/* Main headline */
 .HeroContent h1 {
     margin: 0;
-    font-size: clamp(2.2rem, 5vw, 4.5rem);
     font-family: Tahoma, sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
     font-weight: 700;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
 }
 
-/* Supporting subtext */
 .HeroContent p {
     margin: 14px 0 0 0;
-    font-size: clamp(1rem, 2vw, 1.5rem);
     font-family: Tahoma, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.90);
 }
 
-/* Button row */
 .HeroButtons {
     display: flex;
     justify-content: center;
@@ -147,7 +157,6 @@
     flex-wrap: wrap;
 }
 
-/* Shared button style */
 .HeroButton {
     display: inline-block;
     text-decoration: none;
@@ -159,47 +168,89 @@
     transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-/* Hover state */
 .HeroButton:hover {
     transform: translateY(-5px);
 }
 
-/* Primary CTA */
 .PrimaryButton {
     background-color: rgba(70, 121, 194, 0.78);
     color: black;
 }
 
-/* Secondary CTA */
 .SecondaryButton {
     background-color: rgba(70, 121, 194, 0.78);
     color: black;
 }
 
 /* =========================================================
-   MOBILE NAV
+   SCROLL INDICATOR
    ========================================================= */
 
-@media screen and (max-width: 599px) {
-    .Header {
-        height: 100vh;
-    }
+.ScrollIndicatorWrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    z-index: 4;
+    transform: translateX(-50%);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: white;
+    padding: 12px 18px 14px 18px;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
 
+.ScrollIndicatorText {
+    font-family: Tahoma, sans-serif;
+    font-size: 1.0rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.ScrollIndicatorArrow {
+    width: 20px;
+    height: 20px;
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+    transform: rotate(45deg);
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.65));
+    animation: scrollBounce 1.4s infinite ease-in-out;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(8px) rotate(45deg);
+    }
+}
+
+/* =========================================================
+   MOBILE STYLES
+   ========================================================= */
+
+@media screen and (max-width: 800px) {
+    /* Nav on mobile */
     .Navigation {
-        height: 135px;
+        height: 110px;
         flex-wrap: wrap;
         align-items: center;
     }
 
     .ImageLogo {
-        height: 90px;
+        height: 80px;
         width: auto;
         margin: 8px 0 0 10px;
     }
 
     .Nav-links {
         width: 100%;
-        margin: 11px 0 0 0;
+        margin: 10px 0 0 0;
         justify-content: space-around;
         background-color: rgba(200, 200, 200, 0.50);
         border-top: 2px solid black;
@@ -213,6 +264,9 @@
 
     .Navigation ul li a {
         font-size: 18px;
+        color: black;
+        font-family: Tahoma, sans-serif;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     .Navbar-toggle {
@@ -231,69 +285,259 @@
         border-radius: 10px;
     }
 
+    /* Hero content on mobile */
     .HeroContent {
         top: 55%;
         width: min(92%, 700px);
         padding: 16px;
     }
 
+    .HeroContent h1 {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+        font-family: Tahoma, sans-serif;
+        font-weight: 700;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+        color: white;
+    }
+
+    .HeroContent p {
+        font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+        font-family: Tahoma, sans-serif;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.90);
+        color: white;
+    }
+
     .HeroButtons {
         flex-direction: column;
         align-items: center;
+        gap: 14px;
     }
 
     .HeroButton {
-        width: min(240px, 100%);
+        width: min(240px, 90%);
         text-align: center;
+        font-family: Tahoma, sans-serif;
+        font-weight: 700;
+        background-color: rgba(70, 121, 194, 0.78);
+        color: black;
+    }
+
+    /* Scroll button on mobile */
+    .ScrollIndicatorWrapper {
+        bottom: 14px;
+        padding: 10px 16px 12px 16px;
+    }
+
+    .ScrollIndicatorText {
+        font-size: 0.9rem;
+        font-family: Tahoma, sans-serif;
+        font-weight: 700;
+        color: white;
+    }
+
+    /* About section on mobile */
+    .AboutSection {
+        padding-top: 140px;
+        padding: 60px 0;
+    }
+
+    .AboutInner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .AboutContent h2 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        font-family: Tahoma, sans-serif;
+        color: #111;
+    }
+
+    .AboutContent h3 {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-family: Tahoma, sans-serif;
+        color: rgba(70, 121, 194, 0.95);
+    }
+
+    .AboutContent p {
+        font-size: 0.95rem;
+        font-family: Tahoma, sans-serif;
+        line-height: 1.7;
+        color: #222;
+    }
+
+    .AboutTrustGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .AboutTrustItem h4 {
+        font-size: 1rem;
+        font-family: Tahoma, sans-serif;
+        color: #111;
+    }
+
+    .AboutTrustItem p {
+        font-size: 0.9rem;
+        font-family: Tahoma, sans-serif;
+        color: #333;
+    }
+
+    .AboutButtons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .AboutButton {
+        width: min(240px, 90%);
+        text-align: center;
+        font-family: Tahoma, sans-serif;
+        font-weight: 700;
+    }
+
+    .AboutPrimary {
+        background-color: rgba(70, 121, 194, 0.85);
+        color: black;
+    }
+
+    .AboutSecondary {
+        background-color: rgba(255, 255, 255, 1);
+        color: #111;
+        border: 2px solid rgba(70, 121, 194, 0.85);
     }
 }
+
 /* =========================================================
-   SCROLL INDICATOR
+   ABOUT SECTION
    ========================================================= */
 
-.ScrollIndicator {
-    position: absolute;
-    left: 50%;
-    bottom: 18px;
-    z-index: 4;
-    transform: translateX(-50%);
+.AboutSection {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    background-color: #f4f4f4;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: white;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
 }
 
-.ScrollIndicator:hover {
-    opacity: 1;
+.AboutInner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
 }
 
-.ScrollIndicatorText {
+.AboutImage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.AboutContent h2 {
+    margin: 0;
     font-family: Tahoma, sans-serif;
-    font-size: 1.0rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: #111;
 }
 
-.ScrollIndicatorArrow {
-    width: 20px;
-    height: 20px;
-    border-right: 3px solid white;
-    border-bottom: 3px solid white;
-    transform: rotate(0deg);
-    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.65));
-    animation: scrollBounce 1.4s infinite ease-in-out;
+.AboutContent h3 {
+    margin: 10px 0 18px 0;
+    font-family: Tahoma, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: rgba(70, 121, 194, 0.95);
 }
 
-@keyframes scrollBounce {
-    0%, 100% {
-        transform: translateY(0) rotate(45deg);
+.AboutContent p {
+    margin: 0 0 14px 0;
+    font-family: Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #222;
+}
+
+.AboutTrustGrid {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.AboutTrustItem {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.AboutIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(70, 121, 194, 0.85);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.AboutTrustItem h4 {
+    margin: 0 0 8px 0;
+    font-family: Tahoma, sans-serif;
+    font-size: 1.05rem;
+    color: #111;
+}
+
+.AboutTrustItem p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.AboutButtons {
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.AboutButton {
+    display: inline-block;
+    text-decoration: none;
+    font-family: Tahoma, sans-serif;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 8px;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.AboutButton:hover {
+    transform: translateY(-3px);
+}
+
+.AboutPrimary {
+    background-color: rgba(70, 121, 194, 0.85);
+    color: black;
+}
+
+.AboutSecondary {
+    background-color: rgba(255, 255, 255, 1);
+    color: #111;
+    border: 2px solid rgba(70, 121, 194, 0.85);
+}
+
+/* Mobile */
+@media screen and (max-width: 800px) {
+    .AboutInner {
+        grid-template-columns: 1fr;
     }
-    50% {
-        transform: translateY(8px) rotate(45deg);
+
+    .AboutTrustGrid {
+        grid-template-columns: 1fr;
     }
 }
