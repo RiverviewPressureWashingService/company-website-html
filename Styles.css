@@ -541,3 +541,98 @@ body::-webkit-scrollbar-thumb {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   SERVICES SECTION
+   ========================================================= */
+
+.ServicesSection {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.ServicesInner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.ServicesHeader {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.ServicesHeader h2 {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: rgba(70, 121, 194, 0.95);
+}
+
+.ServicesHeader p {
+    margin: 14px auto 0 auto;
+    max-width: 760px;
+    font-family: Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #222;
+}
+
+.ServicesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.ServiceCard {
+    background: #f4f4f4;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.ServiceCard:hover {
+    transform: translateY(-3px);
+}
+
+.ServiceImage {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.ServiceImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ServiceContent {
+    padding: 20px;
+}
+
+.ServiceContent h3 {
+    margin: 0 0 10px 0;
+    font-family: Tahoma, sans-serif;
+    font-size: 1.3rem;
+    color: #111;
+}
+
+.ServiceContent p {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Mobile */
+@media screen and (max-width: 800px) {
+    .ServicesGrid {
+        grid-template-columns: 1fr;
+    }
+}
