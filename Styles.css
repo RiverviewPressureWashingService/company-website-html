@@ -591,6 +591,11 @@ body::-webkit-scrollbar-thumb {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
     border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.ServiceCard:hover {
+    transform: translateY(-3px);
 }
 
 .ServiceImage {
