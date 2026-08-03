@@ -586,7 +586,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .ServiceCard {
-    background: #f4f4f4;
+    background: rgba(200, 200, 200, 1);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
@@ -634,5 +634,107 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 800px) {
     .ServicesGrid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   AREAS SERVED SECTION
+   ========================================================= */
+
+.AreasSection {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    background-color: #f4f4f4;
+}
+
+.AreasInner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.AreasHeader {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.AreasHeader h2 {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: #111;
+}
+
+.AreasHeader p {
+    margin: 14px auto 0 auto;
+    max-width: 760px;
+    font-family: Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #222;
+}
+
+.AreasMap {
+    width: 100%;
+    margin: 0 0 36px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.AreasMap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.AreasGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.AreaCard {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.AreaCard:hover {
+    transform: translateY(-4px);
+    background-color: #fafafa;
+}
+
+.AreaIcon {
+    width: 28px;
+    height: 28px;
+    color: rgba(70, 121, 194, 0.95);
+    flex-shrink: 0;
+}
+
+.AreaIcon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.AreaName {
+    font-family: Tahoma, sans-serif;
+    font-size: 0.95rem;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Mobile */
+@media screen and (max-width: 800px) {
+    .AreasGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
