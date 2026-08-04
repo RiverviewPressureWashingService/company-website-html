@@ -29,7 +29,7 @@
 
       try {
         await env.EMAIL.send({
-          to: "riverviewpressurewashingservices@gmail.com",
+          to: "rwlovett@gmail.com",
           from: "noreply@riverviewpressurewashingservice.com",
           subject: `New Contact Form Submission - ${service}`,
           text:
