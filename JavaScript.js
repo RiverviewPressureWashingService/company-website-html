@@ -1,4 +1,4 @@
-﻿export default {
+﻿/*export default {
   async fetch(request, env) {
     if (request.method === "OPTIONS") {
       return new Response(null, {
@@ -93,4 +93,4 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
 
   const data = await res.json();
   alert(data.ok ? 'Message sent.' : (data.error || 'Failed.'));
-});
+});*/
