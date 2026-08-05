@@ -2,13 +2,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname === "/contact") {
-      if (request.method === "OPTIONS") {
+    if (url.pathname === "/contact" && request.method === "OPTIONS") {
         return new Response(null, {
           status: 204,
           headers: corsHeaders(request)
         });
-      }
 
       if (request.method !== "POST") {
         return json({ error: "Method not allowed" }, 405, request);
