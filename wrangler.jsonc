@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "company-website-html",
-  "compatibility_date": "2026-08-05",
+  "compatibility_date": "2026-08-04",
   "main": "worker.js",
   "assets": {
     "directory": ".",

@@ -15,7 +15,7 @@
     };
 
     try {
-      const res = await fetch('api.riverviewpressurewashingservice.com/contact', {
+      const res = await fetch('https://api.riverviewpressurewashingservice.com/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
