@@ -1,7 +1,13 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "company-website-html",
-  "main": "worker.js",
   "compatibility_date": "2026-08-04",
+  "main": "worker.js",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/contact"]
+  },
   "send_email": [
     { "name": "EMAIL" }
   ]
